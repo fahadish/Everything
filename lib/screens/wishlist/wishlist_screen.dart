@@ -1,4 +1,4 @@
-import 'package:everything/blocs/wishlist_bloc.dart';
+ import 'package:everything/blocs/wishlist_bloc.dart';
 import 'package:everything/models/product_model.dart';
 import 'package:everything/widgets/custom_appbar.dart';
 import 'package:everything/widgets/custom_navbar.dart';
@@ -19,7 +19,7 @@ class WishlistScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(tittle: '  Wishlist ',),
-      bottomNavigationBar: CustomNavBar(),
+      bottomNavigationBar: CustomNavBar(screen: routeName,),
       body: BlocBuilder<WishlistBloc, WishlistState>(
         builder: (context, state) {
          if (state is WishlistLoading) {
