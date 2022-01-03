@@ -1,3 +1,4 @@
+
 import 'package:everything/blocs/cartBloc/cart_bloc.dart';
 import 'package:everything/models/product_model.dart';
 import 'package:flutter/material.dart';
@@ -89,6 +90,8 @@ if (state is CartLoaded) {
     child: IconButton(
       onPressed: () {
         context.read<CartBloc>().add(CartProductAdded(product));
+        const snakBar = SnackBar(content: Text('Added to your Cart!'));
+        ScaffoldMessenger.of(context).showSnackBar(snakBar);
       },
       icon: const Icon(
         Icons.add_circle,
