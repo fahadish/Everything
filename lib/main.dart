@@ -1,8 +1,10 @@
 import 'package:everything/blocs/categories/category_bloc.dart';
+import 'package:everything/blocs/checkout/checkout_bloc.dart';
 import 'package:everything/blocs/product/product_bloc.dart';
 import 'package:everything/blocs/wishlist_bloc.dart';
 import 'package:everything/config/app_route.dart';
 import 'package:everything/repositories/category/category_repository.dart';
+import 'package:everything/repositories/checkout/checkout_repository.dart';
 import 'package:everything/repositories/product/product_repository.dart';
 import 'package:everything/screens/screens.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -26,6 +28,7 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(create: (_) => WishlistBloc()..add(StartWishList())),
         BlocProvider(create: (_) => CartBloc()..add(CartStarted())),
+        BlocProvider(create: (context) => CheckoutBloc(cartBloc: context.read<CartBloc>(), checkoutRepository: CheckoutRepository(),), ),
         BlocProvider(create: (_)=> CategoryBloc(categoryRepository:
         CategoryRepository())..add(LoadCategories(),)
           ,),
@@ -38,7 +41,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         onGenerateRoute: AppRouter.onGenerateRoute,
-        initialRoute: CheckoutScreen.routName ,
+        initialRoute: SplashScreen.routeName ,
         debugShowCheckedModeBanner: false,
       ),
     );
