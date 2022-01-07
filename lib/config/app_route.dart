@@ -1,10 +1,4 @@
-import 'package:everything/models/category_model.dart';
 import 'package:everything/models/models.dart';
-import 'package:everything/screens/cart/cart_screen.dart';
-import 'package:everything/screens/catalog/catalog_screen.dart';
-import 'package:everything/screens/checkout/checkout_screen.dart';
-import 'package:everything/screens/homescreen/home_screen.dart';
-import 'package:everything/screens/product/product_screen.dart';
 import 'package:everything/screens/screens.dart';
 import 'package:everything/screens/user/user_screen.dart';
 import 'package:flutter/material.dart';
